@@ -1,0 +1,10 @@
+package beans;
+
+public class Usuario {
+
+	String nome;
+	int idade;
+	double altura;
+	double peso;
+	double IMC;
+}

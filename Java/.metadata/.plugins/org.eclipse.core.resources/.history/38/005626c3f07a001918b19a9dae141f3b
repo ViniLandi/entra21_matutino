@@ -1,0 +1,9 @@
+package cargos;
+
+public class Cargo {
+
+	private String cargo;
+	private double salario;
+	private int nivel;
+	
+}

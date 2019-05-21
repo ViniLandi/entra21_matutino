@@ -1,0 +1,10 @@
+package dados;
+
+import java.util.ArrayList;
+
+import beans.Produto;
+
+public class Dados {
+
+	public static Produto produto = new Produto();
+}

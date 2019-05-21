@@ -1,0 +1,12 @@
+package acao;
+
+import beans.Produto;
+
+public class Acao {
+
+	static Produto produto = new Produto();
+	
+	public static void CadastrarCelular() {
+		produto.getCelular();
+	}
+}

@@ -1,0 +1,8 @@
+package exercicio_1;
+
+import java.util.ArrayList;
+
+public class BDJogos {
+
+	public static ArrayList<Jogo> arrayJogos = new ArrayList<Jogo>();
+}

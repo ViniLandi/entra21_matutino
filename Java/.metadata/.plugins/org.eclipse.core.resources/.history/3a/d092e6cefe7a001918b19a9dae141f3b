@@ -1,0 +1,13 @@
+package estado;
+
+import java.util.HashMap;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+//		Criar o hashmap
+		HashMap<String, String> estados = new HashMap<String, String>();
+		
+	}
+}

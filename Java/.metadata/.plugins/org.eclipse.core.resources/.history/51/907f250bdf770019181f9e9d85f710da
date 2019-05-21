@@ -1,0 +1,70 @@
+package formulario;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+
+public class Formulario extends JFrame {
+
+	private JPanel contentPane;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Formulario frame = new Formulario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Formulario() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setBounds(100, 100, 470, 393);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(10, 133, 100, 100);
+		contentPane.add(btnNewButton);
+		
+		JButton button = new JButton("New button");
+		button.setBounds(120, 133, 100, 100);
+		contentPane.add(button);
+		
+		JButton button_1 = new JButton("New button");
+		button_1.setBounds(230, 133, 100, 100);
+		contentPane.add(button_1);
+		
+		JButton button_2 = new JButton("New button");
+		button_2.setBounds(340, 133, 100, 100);
+		contentPane.add(button_2);
+		
+		JButton button_3 = new JButton("New button");
+		button_3.setBounds(10, 244, 100, 100);
+		contentPane.add(button_3);
+		
+		JButton button_4 = new JButton("New button");
+		button_4.setBounds(120, 244, 100, 100);
+		contentPane.add(button_4);
+		
+		JButton button_5 = new JButton("New button");
+		button_5.setBounds(230, 244, 100, 100);
+		contentPane.add(button_5);
+		
+		JButton button_6 = new JButton("New button");
+		button_6.setBounds(340, 244, 100, 100);
+		contentPane.add(button_6);
+	}
+
+}

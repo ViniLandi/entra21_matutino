@@ -1,0 +1,10 @@
+package cargos;
+
+public class Analista extends Cargo{
+
+//	IR
+	public void ir() {
+		
+	}
+	
+}

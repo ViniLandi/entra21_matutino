@@ -1,0 +1,10 @@
+package cargos;
+
+public class Estagiario extends Cargo{
+
+//	IR
+	public void ir() {
+		
+	}
+	
+}

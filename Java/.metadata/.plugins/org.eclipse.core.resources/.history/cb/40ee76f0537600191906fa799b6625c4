@@ -1,0 +1,11 @@
+package acao;
+
+import beans.Colaborador;
+import dados.BDColaborador;
+
+public class Acoes {
+
+	public void CadastrarColaborador(Colaborador c) {
+		BDColaborador.arrayColaborador.add(c);
+	}
+}

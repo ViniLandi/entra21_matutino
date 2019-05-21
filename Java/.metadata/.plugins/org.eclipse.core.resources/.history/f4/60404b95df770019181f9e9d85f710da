@@ -1,0 +1,13 @@
+package beans;
+
+public class Produto {
+
+	private int Celular;
+	private int Notebook;
+	private int TV;
+	private int AparelhoSom;
+	private int Guitarra;
+	private int Violao;
+	private int Bateria;
+	private int Baixo;
+}

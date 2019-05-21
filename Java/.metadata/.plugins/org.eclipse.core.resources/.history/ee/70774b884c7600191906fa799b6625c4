@@ -1,0 +1,143 @@
+package formularios;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
+import java.awt.Font;
+import javax.swing.border.BevelBorder;
+
+public class TelaPrincipal extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TelaPrincipal frame = new TelaPrincipal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public TelaPrincipal() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 700, 500);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel.setBounds(10, 11, 664, 230);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblColaborador = new JLabel("Colaborador:");
+		lblColaborador.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblColaborador.setBounds(10, 11, 64, 14);
+		panel.add(lblColaborador);
+		
+		JLabel lblSalrioBruto = new JLabel("Sal\u00E1rio Bruto:");
+		lblSalrioBruto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblSalrioBruto.setBounds(10, 64, 76, 14);
+		panel.add(lblSalrioBruto);
+		
+		JLabel lblValeTransporte = new JLabel("Vale Transporte:");
+		lblValeTransporte.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblValeTransporte.setBounds(10, 116, 82, 14);
+		panel.add(lblValeTransporte);
+		
+		JLabel lblFaltasNoMs = new JLabel("Faltas no m\u00EAs:");
+		lblFaltasNoMs.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblFaltasNoMs.setBounds(10, 177, 82, 14);
+		panel.add(lblFaltasNoMs);
+		
+		textField = new JTextField();
+		textField.setBounds(109, 8, 230, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(109, 61, 230, 20);
+		panel.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(109, 113, 230, 20);
+		panel.add(textField_2);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(109, 174, 52, 20);
+		panel.add(spinner);
+		
+		JLabel lblCargo = new JLabel("Cargo:");
+		lblCargo.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblCargo.setBounds(350, 11, 82, 14);
+		panel.add(lblCargo);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(442, 7, 212, 22);
+		panel.add(comboBox);
+		
+		JCheckBox chckbxClubeFidelidade = new JCheckBox("Clube fidelidade");
+		chckbxClubeFidelidade.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		chckbxClubeFidelidade.setBounds(376, 60, 105, 23);
+		panel.add(chckbxClubeFidelidade);
+		
+		JCheckBox chckbxPlanoDeSade = new JCheckBox("Plano de sa\u00FAde");
+		chckbxPlanoDeSade.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		chckbxPlanoDeSade.setBounds(531, 60, 105, 23);
+		panel.add(chckbxPlanoDeSade);
+		
+		JLabel lblImpostoDeRenda = new JLabel("Imposto de renda:");
+		lblImpostoDeRenda.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblImpostoDeRenda.setBounds(349, 116, 105, 14);
+		panel.add(lblImpostoDeRenda);
+		
+		JLabel lblSalrioLiquido = new JLabel("Sal\u00E1rio L\u00EDquido:");
+		lblSalrioLiquido.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblSalrioLiquido.setBounds(350, 177, 76, 14);
+		panel.add(lblSalrioLiquido);
+		
+		textField_3 = new JTextField();
+		textField_3.setText("");
+		textField_3.setBounds(442, 174, 212, 20);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 252, 664, 198);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+	}
+}

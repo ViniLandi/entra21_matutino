@@ -1,0 +1,10 @@
+package acao;
+
+import.beans.Produto;
+
+public class Acao {
+
+	public static void CadastrarCelular() {
+		Produto
+	}
+}

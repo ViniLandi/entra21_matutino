@@ -1,0 +1,300 @@
+package formulario;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import acao.Acao;
+import dados.Dados;
+
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class Formulario extends JFrame {
+
+	private JPanel contentPane;
+	private JLabel lblQuantidade;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Formulario frame = new Formulario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Formulario() {
+		
+		Acao acao = new Acao();
+		
+		setTitle("Multisom");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setBounds(100, 100, 470, 393);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		lblQuantidade = new JLabel("QUANTIDADE: 0");
+		lblQuantidade.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(null,
+						"Celular x "+Dados.produto.getCelular()+"\n"+
+						"Notebook x "+Dados.produto.getNotebook()+"\n"+
+						"TV x "+Dados.produto.getTV()+"\n"+
+						"AparelhoSom x "+Dados.produto.getAparelhoSom()+"\n"+
+						"Violão x "+Dados.produto.getViolao()+"\n"+
+						"Guitarra x "+Dados.produto.getGuitarra()+"\n"+
+						"Bateria x "+Dados.produto.getBateria()+"\n"+
+						"Baixo x "+Dados.produto.getBaixo()
+						);
+			}
+		});
+		lblQuantidade.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblQuantidade.setBounds(293, 10, 147, 14);
+		contentPane.add(lblQuantidade);
+		
+		JButton button = new JButton("+");
+		button.setBackground(Color.WHITE);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarCelular();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button.setBounds(10, 142, 48, 23);
+		contentPane.add(button);
+		
+		JLabel lblCelular = new JLabel("Celular");
+		lblCelular.setBounds(10, 176, 48, 14);
+		contentPane.add(lblCelular);
+		
+		JLabel lblTv = new JLabel("TV");
+		lblTv.setBounds(245, 176, 48, 14);
+		contentPane.add(lblTv);
+		
+		JLabel lblNotebook = new JLabel("Notebook");
+		lblNotebook.setBounds(127, 176, 48, 14);
+		contentPane.add(lblNotebook);
+		
+		JLabel lblAparelhosom = new JLabel("AparelhoSom");
+		lblAparelhosom.setBounds(358, 176, 82, 14);
+		contentPane.add(lblAparelhosom);
+		
+		JLabel lblViolao = new JLabel("Violao");
+		lblViolao.setBounds(10, 295, 48, 14);
+		contentPane.add(lblViolao);
+		
+		JLabel lblGuitarra = new JLabel("Guitarra");
+		lblGuitarra.setBounds(127, 295, 48, 14);
+		contentPane.add(lblGuitarra);
+		
+		JLabel lblBateria = new JLabel("Bateria");
+		lblBateria.setBounds(245, 295, 48, 14);
+		contentPane.add(lblBateria);
+		
+		JLabel lblBaixo = new JLabel("Baixo");
+		lblBaixo.setBounds(358, 295, 48, 14);
+		contentPane.add(lblBaixo);
+		
+		JButton button_1 = new JButton("-");
+		button_1.setBackground(Color.WHITE);
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirCelular();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_1.setBounds(10, 201, 48, 23);
+		contentPane.add(button_1);
+		
+		JButton button_2 = new JButton("+");
+		button_2.setBackground(Color.WHITE);
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarNotebook();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_2.setBounds(127, 142, 48, 23);
+		contentPane.add(button_2);
+		
+		JButton button_3 = new JButton("-");
+		button_3.setBackground(Color.WHITE);
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirNotebook();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_3.setBounds(127, 201, 48, 23);
+		contentPane.add(button_3);
+		
+		JButton button_4 = new JButton("+");
+		button_4.setBackground(Color.WHITE);
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarTV();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_4.setBounds(245, 142, 48, 23);
+		contentPane.add(button_4);
+		
+		JButton button_5 = new JButton("-");
+		button_5.setBackground(Color.WHITE);
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirTV();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_5.setBounds(245, 201, 48, 23);
+		contentPane.add(button_5);
+		
+		JButton button_6 = new JButton("+");
+		button_6.setBackground(Color.WHITE);
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarAparelhoSom();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_6.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_6.setBounds(358, 142, 48, 23);
+		contentPane.add(button_6);
+		
+		JButton button_7 = new JButton("-");
+		button_7.setBackground(Color.WHITE);
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirAparelhoSom();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_7.setBounds(358, 201, 48, 23);
+		contentPane.add(button_7);
+		
+		JButton button_8 = new JButton("+");
+		button_8.setBackground(Color.WHITE);
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarViolao();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_8.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_8.setBounds(10, 261, 48, 23);
+		contentPane.add(button_8);
+		
+		JButton button_9 = new JButton("-");
+		button_9.setBackground(Color.WHITE);
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirViolao();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_9.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_9.setBounds(10, 320, 48, 23);
+		contentPane.add(button_9);
+		
+		JButton button_10 = new JButton("+");
+		button_10.setBackground(Color.WHITE);
+		button_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarGuitarra();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_10.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_10.setBounds(127, 261, 48, 23);
+		contentPane.add(button_10);
+		
+		JButton button_11 = new JButton("-");
+		button_11.setBackground(Color.WHITE);
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirGuitarra();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_11.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_11.setBounds(127, 320, 48, 23);
+		contentPane.add(button_11);
+		
+		JButton button_12 = new JButton("+");
+		button_12.setBackground(Color.WHITE);
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarBateria();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_12.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_12.setBounds(245, 261, 48, 23);
+		contentPane.add(button_12);
+		
+		JButton button_13 = new JButton("-");
+		button_13.setBackground(Color.WHITE);
+		button_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirBateira();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_13.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_13.setBounds(245, 320, 48, 23);
+		contentPane.add(button_13);
+		
+		JButton button_14 = new JButton("+");
+		button_14.setBackground(Color.WHITE);
+		button_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.CadastrarBaixo();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_14.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_14.setBounds(358, 261, 48, 23);
+		contentPane.add(button_14);
+		
+		JButton button_15 = new JButton("-");
+		button_15.setBackground(Color.WHITE);
+		button_15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				acao.ExcluirBaixo();
+				lblQuantidade.setText("QUANTIDADE: "+acao.AtualizaQuantidade());
+			}
+		});
+		button_15.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		button_15.setBounds(358, 320, 48, 23);
+		contentPane.add(button_15);
+	}
+
+}

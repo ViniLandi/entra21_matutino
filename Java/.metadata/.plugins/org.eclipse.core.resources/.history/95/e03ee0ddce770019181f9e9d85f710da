@@ -1,0 +1,10 @@
+package acao;
+
+import beans.Usuario;
+
+public class Acao {
+
+	public void CadastrarUsuario(Usuario usuario) {
+		
+	}
+}

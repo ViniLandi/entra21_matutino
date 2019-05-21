@@ -1,0 +1,101 @@
+package acao;
+
+import beans.Produto;
+
+public class Acao {
+
+	static Produto produto = new Produto();
+	
+	public void CadastrarCelular() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirCelular() {
+		if (produto.getCelular() > 0) 
+			produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	public void CadastrarNotebook() {
+		produto.setNotebook(produto.getNotebook()+1);
+	}
+	
+	public void ExcluirNotebook() {
+		if (produto.getNotebook() > 0) 
+		produto.setNotebook(produto.getNotebook()-1);
+	}
+	
+	
+	public void CadastrarTV() {
+		produto.setTV(produto.getTV()+1);
+	}
+	
+	public void ExcluirTV() {
+		if (produto.getTV() > 0) 
+		produto.setTV(produto.getTV()-1);
+	}
+	
+	
+	
+	public void CadastrarAparelhoSom() {
+		produto.setAparelhoSom(produto.getAparelhoSom()+1);
+	}
+	
+	public void ExcluirAparelhoSom() {
+		if (produto.getAparelhoSom() > 0) 
+		produto.setAparelhoSom(produto.getAparelhoSom()-1);
+	}
+	
+	
+	
+	public void CadastrarViolao() {
+		produto.setViolao(produto.getViolao()+1);
+	}
+	
+	public void ExcluirViolao() {
+		if (produto.getViolao() > 0) 
+		produto.setViolao(produto.getViolao()-1);
+	}
+	
+	
+	
+	public void CadastrarGuitarra() {
+		produto.setGuitarra(produto.getGuitarra()+1);
+	}
+	
+	public void ExcluirGuitarra() {
+		if (produto.getGuitarra() > 0) 
+		produto.setGuitarra(produto.getGuitarra()-1);
+	}
+	
+	
+	
+	public void CadastrarBateria() {
+		produto.setBateria(produto.getBateria()+1);
+	}
+	
+	public void ExcluirBateira() {
+		if (produto.getBateria() > 0) 
+		produto.setBateria(produto.getBateria()-1);
+	}
+	
+	
+	
+	
+	public void CadastrarBaixo() {
+		produto.setBaixo(produto.getBaixo()+1);
+	}
+	
+	public void ExcluirBaixo() {
+		if (produto.getBaixo() > 0) 
+		produto.setBaixo(produto.getBaixo()-1);
+	}
+	
+	
+	public int AtualizaQuantidade() {
+		int quantidade = produto.getCelular() + produto.getNotebook() + produto.getTV() + produto.getAparelhoSom() + produto.getViolao() + produto.getGuitarra() + produto.getBateria() + produto.getBaixo();
+		
+		return quantidade;
+	}
+}

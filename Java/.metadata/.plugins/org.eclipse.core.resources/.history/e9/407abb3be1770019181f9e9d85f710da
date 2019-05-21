@@ -1,0 +1,86 @@
+package acao;
+
+import beans.Produto;
+
+public class Acao {
+
+	static Produto produto = new Produto();
+	
+	public void CadastrarCelular() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirCelular() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	public void CadastrarNotebook() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirNotebook() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	public void CadastrarTV() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirTV() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	public void CadastrarAparelhoSom() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirAparelhoSom() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	public void CadastrarViolao() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirViolao() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	public void CadastrarGuitarra() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirGuitarra() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	public void CadastrarBateira() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirBateira() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+	
+	
+	
+	
+	public void CadastrarBaixo() {
+		produto.setCelular(produto.getCelular()+1);
+	}
+	
+	public void ExcluirBaixo() {
+		produto.setCelular(produto.getCelular()-1);
+	}
+}

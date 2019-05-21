@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\i3i\Desktop\Java\ArrayList"/>
+		<item value="C:\Users\i3i\Desktop\Java\05.12Boa pratica"/>
+		<item value="C:\Users\i3i\Desktop\Java\Jogo"/>
+		<item value="C:\Users\i3i\Desktop\Java\05 Projeto"/>
+		<item value="C:\Users\i3i\Desktop\Java\01Lógica e Algoritmos"/>
+	</list>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="497"/>
+		<item key="DIALOG_Y_ORIGIN" value="251"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+</section>

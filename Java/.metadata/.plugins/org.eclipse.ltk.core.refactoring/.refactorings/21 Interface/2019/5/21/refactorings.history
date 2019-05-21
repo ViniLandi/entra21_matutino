@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;padrao.Produtos&apos; to &apos;Produto&apos;&#x0D;&#x0A;- Original project: &apos;21 Interface&apos;&#x0D;&#x0A;- Original element: &apos;padrao.Produtos&apos;&#x0D;&#x0A;- Renamed element: &apos;padrao.Produto&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Produtos&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;padrao{Produtos.java[Produtos" matchStrategy="1" name="Produto" qualified="false" references="true" similarDeclarations="false" stamp="1558355994285" textual="false" version="1.0"/>
+</session>

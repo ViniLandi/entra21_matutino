@@ -1,0 +1,345 @@
+package trabalho;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ListSelectionModel;
+import java.awt.Color;
+import java.awt.Toolkit;
+import javax.swing.JList;
+import javax.swing.AbstractListModel;
+import javax.swing.DefaultListModel;
+import javax.swing.UIManager;
+
+public class CarrinhoDeCompras extends JFrame {
+
+	private JPanel contentPane;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CarrinhoDeCompras frame = new CarrinhoDeCompras();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CarrinhoDeCompras() {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\i3i\\Desktop\\Java\\05 Projeto\\iconeCarrinho.jpg"));
+		setTitle("Carrinho de Compras");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 664, 512);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 238, 628, 190);
+		contentPane.add(scrollPane);
+		
+//		Cria uma tabela para os produtos
+		table = new JTable();
+		table.setForeground(Color.BLACK);
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				
+			},
+			new String[] {
+				"Produto", "Pre\u00E7o"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		});
+		
+		DefaultTableModel tabela = (DefaultTableModel) table.getModel();
+		tabela.addRow(new Object[]{"Camisa Vermelha", "R$ 30.0"});
+		tabela.addRow(new Object[]{"Camisa Azul", "R$ 30.0"});
+		tabela.addRow(new Object[]{"Camisa Amarela", "R$ 30.0"});
+		
+		tabela.addRow(new Object[]{"Bermuda Vermelha", "R$ 30.0"});
+		tabela.addRow(new Object[]{"Bermuda Azul", "R$ 30.0"});
+		tabela.addRow(new Object[]{"Bermuda Amarela", "R$ 30.0"});
+		
+//		Bloqueia o usuário redimensionar as colunas
+		table.getColumnModel().getColumn(0).setResizable(false);
+		table.getColumnModel().getColumn(1).setResizable(false);
+		
+//		Bloqueia o usuário de mover as colunas
+		table.getTableHeader().setReorderingAllowed(false);
+		
+//		Definir largura das colunas
+		table.getColumnModel().getColumn(0).setPreferredWidth(400);
+	
+		scrollPane.setViewportView(table);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(10, 56, 628, 106);
+		contentPane.add(scrollPane_1);
+		
+		JList list = new JList();
+		list.setBackground(UIManager.getColor("Button.background"));
+		list.setForeground(Color.BLACK);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrollPane_1.setViewportView(list);
+		list.setModel(new AbstractListModel() {
+			String[] values = new String[] {};
+			public int getSize() {
+				return values.length;
+			}
+			public Object getElementAt(int index) {
+				return values[index];
+			}
+		});
+		
+		JLabel lblCarrinho = new JLabel("Carrinho:");
+		lblCarrinho.setForeground(Color.BLACK);
+		lblCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCarrinho.setBounds(10, 11, 134, 34);
+		contentPane.add(lblCarrinho);
+		
+		JLabel lblMostrarTotal = new JLabel("TOTAL: R$");
+		lblMostrarTotal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblMostrarTotal.setForeground(Color.BLACK);
+		lblMostrarTotal.setBounds(468, 173, 74, 20);
+		contentPane.add(lblMostrarTotal);
+		
+		JLabel lblTotal = new JLabel("");
+		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTotal.setForeground(Color.BLACK);
+		lblTotal.setBounds(541, 173, 86, 20);
+		contentPane.add(lblTotal);
+	
+		
+		
+		
+//		Cria botão cadastrar produto
+		JButton btnCadastrarProduto = new JButton("Cadastrar Produto");
+		btnCadastrarProduto.setForeground(Color.BLACK);
+		btnCadastrarProduto.setBackground(Color.WHITE);
+//		Define a fonte do botão
+		btnCadastrarProduto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+//		Ação a executar pelo botão cadastrar produto
+		btnCadastrarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				boolean verifica_nome = false, verifica_preco = false, verifica_null = false;
+				String nome_produto = "";
+				double preco = 0;
+				
+				verifica_nome = false;
+				verifica_preco = false;
+				
+//				Verifica e valida o nome do produto
+				while (verifica_nome == false) {
+					
+					try {
+						nome_produto = JOptionPane.showInputDialog("Informe o nome do produto:");
+						if (nome_produto.equals("") || nome_produto.equals(" ")) {
+							JOptionPane.showMessageDialog(null, "O nome do produto deve ser preenchido");
+						} else {
+							verifica_nome = true;
+						} 
+					} catch (Exception e2) {
+//						catch caso caso o usuário clique no botão cancelar
+						verifica_nome = true;
+						verifica_preco = true;
+					}
+				}
+				
+//				Verifica e valida o preço do produto
+				while (verifica_preco == false) {
+					verifica_null = false;
+						try {
+							preco = Double.parseDouble(JOptionPane.showInputDialog("Informe o preço do produto:\n*Utilize apenas números e vírgulas para os centavos!", 0).replace(",", "."));
+							
+						} catch (Exception e2) {
+							JOptionPane.showMessageDialog(null, "O preço não pode estar vazio e é somente permitido o uso de números e vírgula!");
+							verifica_null = true;
+						}
+						if (preco != 0 && verifica_null != true) {
+							verifica_preco = true;
+						}else if (preco == 0 && verifica_null != true){
+							JOptionPane.showMessageDialog(null, "O preço não pode ser 0 (zero)!"); 							
+						}
+				}
+				
+//				Se o usuário não cancelou ao digitar o nome do produto então cadastra
+				if (nome_produto != null) {
+//					Faz uma instancia da JTable
+					DefaultTableModel tabela = (DefaultTableModel) table.getModel();
+//					Adiciona na tabela o produto cadastrado
+					tabela.addRow(new Object[]{nome_produto, "R$ "+preco});
+				}
+				
+			}
+		});
+		btnCadastrarProduto.setBounds(10, 439, 134, 23);
+		contentPane.add(btnCadastrarProduto);
+		
+		
+//		Cria botão editar produto
+		JButton btnEditarProduto = new JButton("Editar Produto");
+		btnEditarProduto.setForeground(Color.BLACK);
+		btnEditarProduto.setBackground(Color.WHITE);
+//		Define a fonte do botão
+		btnEditarProduto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+//		Ação a executar pelo botão editar produto
+		btnEditarProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String nome_produto = "", nome_produto_selecionado = "", preco_selecionado = "";
+				double preco = 0;
+				boolean verifica_preco = false, verifica_null = false;
+				
+//				Verifica se há alguma linha da tabela selecionada
+					if (table.getSelectedRow() != -1) {
+						
+//						Captura o nome e o preço do produto selecionado na tabela
+						nome_produto_selecionado = (String) table.getValueAt(table.getSelectedRow(), 0);
+						preco_selecionado = (String) table.getValueAt(table.getSelectedRow(), 1);
+						
+//						Pede pra digitar o nome do produto
+						nome_produto = JOptionPane.showInputDialog(
+								"Produto: "+nome_produto_selecionado+"\nPreço : "+preco_selecionado
+								+ "\n\nInforme o nome do produto"
+								+ "\nOu"
+								+ "\nDeixe o campo vazio para manter o antigo nome!");
+						
+//						Se não for informado nenhum novo nome, permanece o antigo nome para o produto
+						if (nome_produto.equals("") || nome_produto.equals(" ")) {
+							nome_produto = nome_produto_selecionado;
+						}
+						
+//				Loop para verificar o preço a ser digitado
+				verifica_preco = false;
+				while (verifica_preco == false) {
+				verifica_null = false;
+				
+//				Tratamento de erro caso o que for digitado foi nulo ou utilizou de outros caracateres a não ser números
+						try {
+//						Pede pra digitar o preço do produto
+						preco = Double.parseDouble(JOptionPane.showInputDialog(
+								"Produto: "+nome_produto+"\nPreço : "+preco_selecionado
+								+ "\n\nInforme o preço do produto"
+								+ "\nOu"
+								+ "\nDeixe o campo com valor em 0 para manter o antigo preço!", 0).replace(",", "."));
+						} catch (Exception e2) {
+							
+//							Verifica se o que foi digitado foi nulo ou utilizou de outros caracateres a não ser números
+							JOptionPane.showMessageDialog(null, "O preço não pode estar vazio e é somente permitido o uso de números e vírgula!");
+							verifica_null = true;
+						}
+
+//						Verifica se no campo digitado foi nulo
+						if (verifica_null == false) {
+//							Se for digitado 0, permanece o antigo preço
+							if (preco == 0) {
+								preco = Double.parseDouble(preco_selecionado.substring(3));
+							}
+//							Se foi tudo filtrado e digitado corretamente, poderá sair do loop de verificação e a alteração foi efetuada com sucesso
+							verifica_preco = true;
+						}
+				}
+
+				table.setValueAt(nome_produto, table.getSelectedRow(), 0);
+				table.setValueAt("R$ "+preco, table.getSelectedRow(), 1);
+				
+//				Se não houver linhas selecionadas então não será possível efetuar alguma alteração
+					}else {
+						JOptionPane.showMessageDialog(null, "Selecione a linha de algum produto para editar!");
+					}
+			}
+		});
+		btnEditarProduto.setBounds(154, 439, 121, 23);
+		contentPane.add(btnEditarProduto);
+		
+		JButton btnExcluirProduto = new JButton("Excluir Produto");
+		btnExcluirProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				Verifica se há alguma linha da tabela selecionada
+					if (table.getSelectedRow() != -1) {
+						Object[] sim_nao = {"SIM","NÃO"};
+						int excluir = JOptionPane.showOptionDialog(null, "Deseja realmente exlcuir?", "Excluir?", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, sim_nao, null);
+					if (excluir == 0) {
+						DefaultTableModel tabela = (DefaultTableModel) table.getModel();
+						tabela.removeRow(table.getSelectedRow());
+					}
+					}else {
+						JOptionPane.showMessageDialog(null, "Selecione a linha de algum produto para excluir!");
+					}
+			}
+		});
+		btnExcluirProduto.setForeground(Color.BLACK);
+		btnExcluirProduto.setBackground(Color.WHITE);
+		btnExcluirProduto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnExcluirProduto.setBounds(285, 439, 121, 23);
+		contentPane.add(btnExcluirProduto);
+		
+		
+		JButton btnAdicionarAoCarrinho = new JButton("Adicionar ao carrinho");
+		btnAdicionarAoCarrinho.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (table.getSelectedRow() != -1) {
+					String[] item = {table.getValueAt(table.getSelectedRow(), 0)+" - "+table.getValueAt(table.getSelectedRow(), 1)};
+//					list.add(item);
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Selecione a linha de algum produto!");
+				}
+			}
+		});
+
+		btnAdicionarAoCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnAdicionarAoCarrinho.setForeground(Color.BLACK);
+		btnAdicionarAoCarrinho.setBackground(Color.WHITE);
+		btnAdicionarAoCarrinho.setBounds(10, 204, 145, 23);
+		contentPane.add(btnAdicionarAoCarrinho);
+		
+		JButton btnFecharCompra = new JButton("FECHAR COMPRA");
+		btnFecharCompra.setForeground(Color.BLACK);
+		btnFecharCompra.setBackground(Color.GREEN);
+		btnFecharCompra.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnFecharCompra.setBounds(502, 204, 136, 23);
+		contentPane.add(btnFecharCompra);
+		
+		JButton btnRemoverDoCarrinho = new JButton("Remover do carrinho");
+		btnRemoverDoCarrinho.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnRemoverDoCarrinho.setForeground(Color.BLACK);
+		btnRemoverDoCarrinho.setBackground(Color.WHITE);
+		btnRemoverDoCarrinho.setBounds(165, 204, 145, 23);
+		contentPane.add(btnRemoverDoCarrinho);
+	}
+}

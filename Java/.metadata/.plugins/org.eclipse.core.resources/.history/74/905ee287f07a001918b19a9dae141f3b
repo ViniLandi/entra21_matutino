@@ -1,0 +1,10 @@
+package cargos;
+
+public class Estagiario {
+
+//	IR
+	public void ir() {
+		
+	}
+	
+}

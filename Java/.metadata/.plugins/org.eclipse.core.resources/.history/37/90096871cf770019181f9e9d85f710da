@@ -1,0 +1,22 @@
+package acao;
+
+import beans.Usuario;
+import dados.Dados;
+
+public class Acao {
+
+	public boolean ExisteUsuario(String nomeUsuario) {
+		boolean existe = false;
+		for (int i = 0; i < Dados.arrayUsuario.size(); i++) {
+			if (nomeUsuario.equals(Dados.arrayUsuario.get(i).getNome())) {
+				existe = true;
+				break;
+			}
+		}
+		return existe;
+	}
+	
+	public static void CadastrarUsuario(Usuario usuario) {
+		Dados.arrayUsuario.add(usuario);
+	}
+}

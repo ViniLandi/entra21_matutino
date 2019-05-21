@@ -1,0 +1,11 @@
+package dados;
+
+import java.util.ArrayList;
+
+import beans.Usuario;
+
+public class Dados {
+	
+	ArrayList<Usuario> arrayUsuario = new ArrayList<Usuario>();
+	
+}

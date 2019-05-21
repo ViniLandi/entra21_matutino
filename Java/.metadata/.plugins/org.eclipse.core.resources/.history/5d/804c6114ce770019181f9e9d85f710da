@@ -1,0 +1,139 @@
+package formulario;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import beans.Usuario;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JScrollPane;
+import javax.swing.JButton;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+
+public class Formulario extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtNome;
+	private JTextField txtIdade;
+	private JTextField txtAltura;
+	private JTextField txtPeso;
+	private JTextField txtIMC;
+	private JTable table;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Formulario frame = new Formulario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public void LiberaManipulacao() {
+		
+	}
+	
+	public void LimpaCampos() {
+		txtNome.setText("");
+		txtIdade.setText("");
+		txtAltura.setText("");
+		txtPeso.setText("");
+		txtIMC.setText("");
+	}
+	
+	public Usuario usuario() {
+		Usuario usuario = new Usuario();
+		usuario.setNome(txtNome.getText());
+		usuario.setIdade(Integer.parseInt(txtIdade.getText()));
+		usuario.setAltura(Integer.parseInt(txtAltura.getText()));
+		usuario.setPeso(Double.parseDouble(txtPeso.getText()));
+		usuario.setIMC(Double.parseDouble(txtIMC.getText()));
+		
+		return usuario;
+		
+	}
+	public Formulario() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 600, 450);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setBounds(10, 26, 48, 14);
+		contentPane.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(68, 23, 197, 20);
+		contentPane.add(txtNome);
+		txtNome.setColumns(10);
+		
+		JLabel lblIdade = new JLabel("Idade:");
+		lblIdade.setBounds(319, 29, 48, 14);
+		contentPane.add(lblIdade);
+		
+		txtIdade = new JTextField();
+		txtIdade.setColumns(10);
+		txtIdade.setBounds(377, 26, 197, 20);
+		contentPane.add(txtIdade);
+		
+		JLabel lblAltura = new JLabel("Altura:");
+		lblAltura.setBounds(10, 68, 48, 14);
+		contentPane.add(lblAltura);
+		
+		txtAltura = new JTextField();
+		txtAltura.setColumns(10);
+		txtAltura.setBounds(68, 65, 197, 20);
+		contentPane.add(txtAltura);
+		
+		JLabel lblPeso = new JLabel("Peso:");
+		lblPeso.setBounds(319, 68, 48, 14);
+		contentPane.add(lblPeso);
+		
+		txtPeso = new JTextField();
+		txtPeso.setColumns(10);
+		txtPeso.setBounds(377, 65, 197, 20);
+		contentPane.add(txtPeso);
+		
+		JLabel lblImc = new JLabel("IMC:");
+		lblImc.setBounds(155, 114, 48, 14);
+		contentPane.add(lblImc);
+		
+		txtIMC = new JTextField();
+		txtIMC.setEnabled(false);
+		txtIMC.setColumns(10);
+		txtIMC.setBounds(213, 111, 197, 20);
+		contentPane.add(txtIMC);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 200, 564, 200);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrollPane.setViewportView(table);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBounds(10, 166, 89, 23);
+		contentPane.add(btnCadastrar);
+		
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBounds(109, 166, 89, 23);
+		contentPane.add(btnAlterar);
+		
+		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setBounds(208, 166, 89, 23);
+		contentPane.add(btnExcluir);
+	}
+}

@@ -1,0 +1,9 @@
+package banco;
+
+public class Cheque {
+
+//	Método de juros
+	public void juros(double valor) {
+	}
+	
+}
